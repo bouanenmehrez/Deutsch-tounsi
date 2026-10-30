@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Deutsch Tounsi — تعلم الألمانية للتوانسة من A1 إلى B2، دروس مبسطة وتمارين وامتحانات ومصادر مجانية.">
+  <meta name="theme-color" content="#102a43">
+  <title>Deutsch Tounsi | الألمانية بالتونسي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="Deutsch Tounsi home"><span class="brand-mark">DT</span><span>Deutsch <b>Tounsi</b><small>الألمانية بالتونسي</small></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+  <nav id="mainNav">
+    <a href="#courses">الكورسات</a><a href="#dashboard">تقدّمي</a><a href="#exam">اختبر روحك</a><a href="#resources">مصادر مجانية</a>
+  </nav>
+  <button class="btn btn-outline" id="profileButton">دخول / حساب جديد</button>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Lern Deutsch — خطوة بخطوة</span>
+    <h1>الألمانية تولّي <em>أسهل</em><br>كي تتعلّمها بالتونسي.</h1>
+    <p>من أوّل كلمة حتى تحضّر لامتحانك. دروس واضحة، أمثلة، تمارين واختبارات بمستويات A1 وA2 وB1 وB2.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="#courses">ابدأ التعلّم <span>←</span></a><a class="btn btn-ghost" href="#resources">مصادر مجانية</a></div>
+    <div class="hero-proof"><span>✓ شرح بالعربي والتونسي</span><span>✓ تعلّم على راحتك</span><span>✓ مناسب للمبتدئين</span></div>
+  </div>
+  <div class="hero-card">
+    <div class="card-top"><span class="live-dot"></span> خطّة تعلّمك</div>
+    <div class="level-circle"><div><b>A1</b><small>المستوى الأول</small></div></div>
+    <h3>كل نهار خطوة صغيرة</h3><p>ابدأ بالتحيّة، تعلّم الأفعال، وبعد جرّب أوّل اختبار.</p>
+    <div class="mini-progress"><div><span></span></div><small>تقدّمك يتسجّل على الجهاز</small></div>
+  </div>
+</section>
+
+<section class="stats wrap">
+  <div><b>4</b><span>مستويات CEFR</span></div><div><b>دروس</b><span>شرح وأمثلة</span></div><div><b>Quiz</b><span>اختبر معلوماتك</span></div><div><b>مجاني</b><span>مصادر للتعلّم</span></div>
+</section>
+
+<section class="section wrap" id="courses">
+  <div class="section-heading"><div><span class="eyebrow">اختار مستواك</span><h2>الكورسات</h2><p>ابدأ من المستوى المناسب ليك. إذا أوّل مرّة تتعلّم ألماني، اختار A1.</p></div><span class="pill">A1 → B2</span></div>
+  <div class="course-grid" id="courseGrid"></div>
+</section>
+
+<section class="section dashboard-section" id="dashboard">
+ <div class="wrap dashboard">
+  <div><span class="eyebrow">مسارك التعليمي</span><h2>تقدّمك في التعلّم</h2><p>الدروس اللي تكملهم ونتائج الاختبارات يتسجّلوا في المتصفّح هذا.</p>
+    <div class="progress-card"><div class="progress-head"><b>التقدّم العام</b><strong id="progressPercent">0%</strong></div><div class="progress-track"><span id="progressBar"></span></div><small id="progressText">ما كملتش حتى درس. يلا نبدأو!</small></div>
+    <button class="btn btn-outline" id="resetProgress">إعادة ضبط التقدّم</button>
+  </div>
+  <div class="dashboard-side"><div class="dash-icon">🎓</div><h3 id="welcomeName">أهلا بيك!</h3><p>اختار درس، تعلّم، وبعد علّم عليه كمكتمل باش تتابع تقدّمك.</p><button class="btn btn-primary" id="continueButton">كمّل التعلّم</button></div>
+ </div>
+</section>
+
+<section class="section wrap" id="lessonArea">
+  <div class="section-heading"><div><span class="eyebrow">درس اليوم</span><h2 id="lessonTitle">أوّل درس: التحيات والتعارف</h2><p id="lessonSubtitle">أهمّ العبارات اللي تستعملهم كي تقابل شخص بالألماني.</p></div><span class="pill" id="lessonLevel">A1 · Lektion 1</span></div>
+  <div class="lesson-layout">
+    <article class="lesson-content" id="lessonContent">
+      <div class="phrase"><div><b>Hallo!</b><small>أهلا / سلام</small></div><button class="audio-btn" data-say="Hallo">🔊 اسمع</button></div>
+      <div class="phrase"><div><b>Guten Morgen!</b><small>صباح الخير</small></div><button class="audio-btn" data-say="Guten Morgen">🔊 اسمع</button></div>
+      <div class="phrase"><div><b>Wie heißt du?</b><small>شنوّة اسمك؟</small></div><button class="audio-btn" data-say="Wie heißt du">🔊 اسمع</button></div>
+      <div class="phrase"><div><b>Ich heiße …</b><small>اسمي …</small></div><button class="audio-btn" data-say="Ich heiße">🔊 اسمع</button></div>
+      <div class="lesson-note"><b>ملاحظة:</b> في الألماني، الحرف الأول من الأسماء يكتب كبير. مثال: <strong>Ahmed</strong>.</div>
+    </article>
+    <aside class="lesson-aside"><h3>جرّب وحدك</h3><p>كيفاش تقول «شنوّة اسمك؟» بالألماني؟</p><div id="quickQuiz"><button class="answer" data-correct="false">Wie geht es dir?</button><button class="answer" data-correct="true">Wie heißt du?</button><button class="answer" data-correct="false">Guten Abend!</button></div><p id="quickFeedback" class="feedback" aria-live="polite"></p><button class="btn btn-primary full" id="completeLesson">علّم الدرس كمكتمل ✓</button></aside>
+  </div>
+</section>
+
+<section class="section exam-section" id="exam"><div class="wrap">
+  <div class="section-heading"><div><span class="eyebrow">Prüfung</span><h2>اختبار A1 صغير</h2><p>جاوب على الأسئلة وشوف نتيجتك في الآخر.</p></div><span class="pill">3 أسئلة</span></div>
+  <div class="exam-box"><div id="examQuestions"></div><div class="exam-footer"><button class="btn btn-primary" id="submitExam">احسب النتيجة</button><strong id="examResult" aria-live="polite"></strong></div></div>
+</div></section>
+
+<section class="section wrap" id="resources">
+  <div class="section-heading"><div><span class="eyebrow">Weiterlernen</span><h2>مصادر مجانية موثوقة</h2><p>مواقع خارجية تنجم تعاونك في السماع، القراءة والتحضير للامتحانات.</p></div></div>
+  <div class="resource-grid">
+    <a class="resource" href="https://learngerman.dw.com/" target="_blank" rel="noopener"><span>DW</span><div><b>Nicos Weg</b><small>فيديوهات وتمارين من A1 إلى B1</small></div><i>↗</i></a>
+    <a class="resource" href="https://www.goethe.de/ins/tn/ar/spr/ueb.html" target="_blank" rel="noopener"><span>G</span><div><b>Goethe-Institut تونس</b><small>تمارين ومعلومات على الامتحانات</small></div><i>↗</i></a>
+    <a class="resource" href="https://www.vhs-lernportal.de/" target="_blank" rel="noopener"><span>VHS</span><div><b>VHS-Lernportal</b><small>تعلّم وتمارين أونلاين</small></div><i>↗</i></a>
+    <a class="resource" href="https://www.youtube.com/@dwlearngerman" target="_blank" rel="noopener"><span>▶</span><div><b>DW Learn German</b><small>فيديوهات لتقوية السماع والنطق</small></div><i>↗</i></a>
+  </div>
+</section>
+
+<section class="cta wrap"><div><span class="eyebrow">Dein nächster Schritt</span><h2>أهم حاجة: واصل كل يوم شوية.</h2><p>10 إلى 15 دقيقة يومياً تنجم تعمل فرق كبير مع الوقت.</p></div><a href="#courses" class="btn btn-primary">اختار أوّل كورس ←</a></section>
+</main>
+
+<footer><div class="wrap footer-inner"><a class="brand" href="#home"><span class="brand-mark">DT</span><span>Deutsch <b>Tounsi</b><small>الألمانية بالتونسي</small></span></a><p>مشروع تعليمي مستقل. موش تابع لـ Goethe-Institut أو DW.</p><small>© <span id="year"></span> Deutsch Tounsi</small></div></footer>
+
+<div class="modal-backdrop" id="profileModal" hidden>
+ <div class="modal"><button class="modal-close" id="closeModal" aria-label="إغلاق">×</button><span class="eyebrow">ملفّك الشخصي</span><h2>مرحبا بيك في Deutsch Tounsi</h2><p>اكتب اسم تختارو باش نخصّصو التقدّم على الجهاز هذا.</p><label for="studentName">اسمك</label><input id="studentName" maxlength="32" placeholder="مثال: Ahmed"><button class="btn btn-primary full" id="saveProfile">حفظ</button><small class="modal-hint">ملاحظة: هذا ملف محلّي في المتصفّح، موش حساب أونلاين متزامن بين الأجهزة.</small></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
