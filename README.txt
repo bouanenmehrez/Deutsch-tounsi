@@ -1,46 +1,28 @@
-DEUTSCH TOUNSI — Website starter package
-=========================================
+DEUTSCH TOUNSI — FULL A1 COURSE + STUDENT LOGIN + ADMIN
 
-WHAT IS INCLUDED
-- Responsive Arabic/Tunisian Arabic learning website.
-- Course overview for A1, A2, B1 and B2.
-- Six starter A1 lessons with German/Tunisian explanations.
-- German pronunciation button (uses browser speech synthesis).
-- Quick quiz and a short A1 test.
-- Progress tracker and student display name stored in this browser using localStorage.
-- Links to DW, Goethe-Institut Tunisia and VHS Lernportal.
-- SEO title and description.
+Files to upload to the ROOT of the GitHub repository:
+- index.html
+- style.css
+- script.js
+- supabase-config.js
 
-IMPORTANT LIMITATION — PLEASE READ
-This package is a working STATIC website. It is not yet the full multi-user platform requested.
-The current profile and progress are stored only in the same browser/device. There is NO real online
-registration/login, cloud database, admin dashboard, or cross-device progress synchronization.
-A GitHub Pages site alone cannot provide secure student accounts and a shared database.
+Course content:
+- 24 structured A1 lessons in Tunisian Arabic with German vocabulary, examples, grammar notes and pronunciation buttons.
+- 8-question A1 review quiz.
+- A2, B1 and B2 are roadmap sections only for now; they are not complete courses yet.
 
-TO PUBLISH THE WEBSITE
-1. Create/sign in to a GitHub account yourself.
-2. Create a public repository named deutsch-tounsi.
-3. Upload index.html, style.css, script.js and this README (or upload the ZIP contents).
-4. In repository Settings > Pages, choose Deploy from a branch, select main and /(root), then Save.
-5. GitHub will show the public website address after deployment.
+Account setup:
+1. Upload the four website files above to GitHub, replacing the old versions.
+2. In Supabase SQL Editor, run Deutsch_Tounsi_Admin_Setup.sql.
+3. Open the published website and create your account with your own email and password. Confirm the email if requested.
+4. In Supabase SQL Editor, run the final UPDATE statement from the SQL file after replacing YOUR_EMAIL_HERE with the exact email used for your account.
+5. Sign out and sign in again. Your account will show the Admin panel. New signups default to student.
 
-TO APPEAR ON GOOGLE
-1. First publish the site and make sure the public link works.
-2. Open Google Search Console and add the website URL-prefix property.
-3. Complete Google's ownership verification (the easiest method depends on your setup).
-4. Submit the homepage for indexing. Google indexing can take days or longer and is not guaranteed.
+Security:
+- The browser config contains the Supabase publishable key, which is intended for public frontend use. Never place a secret/service_role key in website files.
+- Never share passwords or email confirmation codes.
+- Admin role is assigned only from the Supabase SQL Editor, not from public signup.
+- Admin panel shows student activity and lesson catalog. Adding a lesson row does not automatically write its full teaching content; full lesson content is authored in script.js.
+- The student table shows names and activity counts, not other students' email addresses.
 
-TO UPGRADE TO THE FULL VERSION (REAL STUDENT ACCOUNTS)
-Recommended architecture:
-- Front end: this website.
-- Hosting: GitHub Pages or another static host.
-- Authentication + database: Supabase (free tier availability/limits may change).
-Required next steps: create a Supabase project, enable email authentication, create tables for profiles,
-lesson progress and quiz scores, then add the project URL and anon/public key to a configuration file.
-Never publish a service_role key or share passwords/one-time codes.
-The full login/database connection has NOT been configured because it requires an account and project
-owned/authorized by you.
-
-CONTENT NOTE
-Only the starter A1 lessons are written in this package. A2, B1 and B2 cards are roadmap placeholders.
-The site is an independent educational project and is not affiliated with Goethe-Institut, DW or VHS.
+The package does not publish itself. You must upload the files and run the SQL migration in your own GitHub and Supabase projects.

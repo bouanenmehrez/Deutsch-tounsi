@@ -16,7 +16,7 @@
   <a class="brand" href="#home" aria-label="Deutsch Tounsi home"><span class="brand-mark">DT</span><span>Deutsch <b>Tounsi</b><small>الألمانية بالتونسي</small></span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
   <nav id="mainNav">
-    <a href="#courses">الكورسات</a><a href="#dashboard">تقدّمي</a><a href="#exam">اختبر روحك</a><a href="#resources">مصادر مجانية</a>
+    <a href="#courses">الكورسات</a><a href="#dashboard">تقدّمي</a><a href="#exam">اختبر روحك</a><a href="#resources">مصادر مجانية</a><a href="#adminPanel" id="adminNav" hidden>لوحة الإدارة</a>
   </nav>
   <button class="btn btn-outline" id="profileButton">دخول / حساب جديد</button>
 </header>
@@ -49,7 +49,7 @@
 
 <section class="section dashboard-section" id="dashboard">
  <div class="wrap dashboard">
-  <div><span class="eyebrow">مسارك التعليمي</span><h2>تقدّمك في التعلّم</h2><p>الدروس اللي تكملهم ونتائج الاختبارات يتسجّلوا في المتصفّح هذا.</p>
+  <div><span class="eyebrow">مسارك التعليمي</span><h2>تقدّمك في التعلّم</h2><p>بعد تسجيل الدخول، يتسجّل تقدّمك ونتائجك في حسابك وتنجم ترجع لهم من جهاز آخر.</p>
     <div class="progress-card"><div class="progress-head"><b>التقدّم العام</b><strong id="progressPercent">0%</strong></div><div class="progress-track"><span id="progressBar"></span></div><small id="progressText">ما كملتش حتى درس. يلا نبدأو!</small></div>
     <button class="btn btn-outline" id="resetProgress">إعادة ضبط التقدّم</button>
   </div>
@@ -89,12 +89,22 @@
 <section class="cta wrap"><div><span class="eyebrow">Dein nächster Schritt</span><h2>أهم حاجة: واصل كل يوم شوية.</h2><p>10 إلى 15 دقيقة يومياً تنجم تعمل فرق كبير مع الوقت.</p></div><a href="#courses" class="btn btn-primary">اختار أوّل كورس ←</a></section>
 </main>
 
+
+<section class="section wrap" id="adminPanel" hidden>
+ <div class="section-heading"><div><span class="eyebrow">ADMINISTRATION</span><h2>لوحة تحكّم المدير</h2><p>إدارة الطلبة ومتابعة التقدّم والاختبارات والدروس.</p></div><span class="pill">Admin</span></div>
+ <div class="admin-stats" id="adminStats"></div>
+ <div class="admin-grid"><div class="admin-card"><h3>الطلبة</h3><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>الاسم</th><th>دروس مكتملة</th><th>اختبارات</th></tr></thead><tbody id="adminStudents"><tr><td colspan="3">جاري التحميل...</td></tr></tbody></table></div></div>
+ <div class="admin-card"><h3>إضافة درس</h3><label for="newLessonId">معرّف الدرس</label><input id="newLessonId" placeholder="a1-7"><label for="newLessonLevel">المستوى</label><select id="newLessonLevel"><option>A1</option><option>A2</option><option>B1</option><option>B2</option></select><label for="newLessonTitle">عنوان الدرس</label><input id="newLessonTitle" placeholder="عنوان الدرس"><label for="newLessonDescription">وصف مختصر</label><input id="newLessonDescription" placeholder="وصف الدرس"><button class="btn btn-primary full" id="addLessonButton">إضافة الدرس</button><p class="admin-hint">هذا يضيف سجل الدرس في قاعدة البيانات؛ محتوى الدرس يلزم إضافته لملفات الموقع.</p></div></div>
+ <div class="admin-card"><h3>الدروس المنشورة</h3><div id="adminLessons">جاري التحميل...</div></div>
+</section>
 <footer><div class="wrap footer-inner"><a class="brand" href="#home"><span class="brand-mark">DT</span><span>Deutsch <b>Tounsi</b><small>الألمانية بالتونسي</small></span></a><p>مشروع تعليمي مستقل. موش تابع لـ Goethe-Institut أو DW.</p><small>© <span id="year"></span> Deutsch Tounsi</small></div></footer>
 
 <div class="modal-backdrop" id="profileModal" hidden>
- <div class="modal"><button class="modal-close" id="closeModal" aria-label="إغلاق">×</button><span class="eyebrow">ملفّك الشخصي</span><h2>مرحبا بيك في Deutsch Tounsi</h2><p>اكتب اسم تختارو باش نخصّصو التقدّم على الجهاز هذا.</p><label for="studentName">اسمك</label><input id="studentName" maxlength="32" placeholder="مثال: Ahmed"><button class="btn btn-primary full" id="saveProfile">حفظ</button><small class="modal-hint">ملاحظة: هذا ملف محلّي في المتصفّح، موش حساب أونلاين متزامن بين الأجهزة.</small></div>
+ <div class="modal"><button class="modal-close" id="closeModal" aria-label="إغلاق">×</button><span class="eyebrow">حساب الطالب</span><h2>مرحبا بيك في Deutsch Tounsi</h2><p id="authStatus">اعمل حساب جديد أو ادخل لحسابك باش يتسجّل تقدّمك أونلاين.</p><label for="studentName">الاسم (للحساب الجديد)</label><input id="studentName" maxlength="32" placeholder="مثال: Ahmed"><label for="authEmail">البريد الإلكتروني</label><input id="authEmail" type="email" autocomplete="email" placeholder="name@example.com"><label for="authPassword">كلمة السر</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="6 أحرف على الأقل"><button class="btn btn-primary full" id="signUpButton">إنشاء حساب</button><button class="btn btn-outline full" id="signInButton">دخول</button><button class="btn btn-ghost full" id="signOutButton" hidden>تسجيل الخروج</button><small class="modal-hint">التسجيل بالبريد الإلكتروني. إذا طلب Supabase تأكيد البريد، افتح رسالة التأكيد أولاً.</small></div>
 </div>
 <div class="toast" id="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
